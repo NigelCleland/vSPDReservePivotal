@@ -100,6 +100,7 @@ $label SkipFTRinput
 put_utility temp 'exec' / 'gams runvSPDsetup' ;
 
 Scalar runNum 'Scalar to keep track of the run number' / 1 / ;
+
 loop(i_fileName,
 
 * Create the file that has the name of the input file for the current case being solved

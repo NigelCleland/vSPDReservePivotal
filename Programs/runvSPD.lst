@@ -1,4 +1,4 @@
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 14:41:36 Page 1
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -56,7 +56,7 @@ INCLUDE    Z:\home\nigel\python\vSPDReservePivotal\Programs\vSPDsettings.inc
   70   
   71  *+++ External loss model from Transpower +++
   72  Scalar useExternalLossModel              / 1 / ;
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 14:41:36 Page 2
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -109,12 +109,12 @@ C o m p i l a t i o n
  123  Set i_fileName 'Input GDX file names'
 INCLUDE    Z:\home\nigel\python\vSPDReservePivotal\Programs\vSPDfileList.inc
  125  /
- 126  FP_201303111516
+ 126  FP_2013102016
  127  /
  128    ;
  129   
  130   
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 14:41:36 Page 3
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -139,105 +139,106 @@ C o m p i l a t i o n
  149  put_utility temp 'exec' / 'gams runvSPDsetup' ;
  150   
  151  Scalar runNum 'Scalar to keep track of the run number' / 1 / ;
- 152  loop(i_fileName,
- 153   
- 154  * Create the file that has the name of the input file for the current case being solved
- 155    putclose vSPDcase "$setglobal  vSPDinputData  " i_fileName.tl:0 / "$setglobal  vSPDrunNum     " runNum:0:0 ;
- 156   
- 157  * Solve the model for the current input file
- 158    put_utility temp 'exec' / 'gams runvSPDsolve' ;
- 159   
- 160  * Copy the vSPDsolve.lst file to i_fileName.lst in ..\Programs\lst\
- 161    put_utility temp 'shell' / 'copy vSPDsolve.lst "Z:\home\nigel\python\vSPDReservePivotal\Programs\"\lst\', i_fileName.tl:0, '.lst' ;
- 162   
- 164   
- 165  * Increment the run number before going around loop again
- 166    runNum = runNum + 1 ;
- 167   
- 168  ) ;
- 169   
+ 152   
+ 153  loop(i_fileName,
+ 154   
+ 155  * Create the file that has the name of the input file for the current case being solved
+ 156    putclose vSPDcase "$setglobal  vSPDinputData  " i_fileName.tl:0 / "$setglobal  vSPDrunNum     " runNum:0:0 ;
+ 157   
+ 158  * Solve the model for the current input file
+ 159    put_utility temp 'exec' / 'gams runvSPDsolve' ;
+ 160   
+ 161  * Copy the vSPDsolve.lst file to i_fileName.lst in ..\Programs\lst\
+ 162    put_utility temp 'shell' / 'copy vSPDsolve.lst "Z:\home\nigel\python\vSPDReservePivotal\Programs\"\lst\', i_fileName.tl:0, '.lst' ;
+ 163   
+ 165   
+ 166  * Increment the run number before going around loop again
+ 167    runNum = runNum + 1 ;
+ 168   
+ 169  ) ;
  170   
- 171  *=====================================================================================
- 172  * Generate reports (solving vSPD is now finished).
- 173  *=====================================================================================
- 174   
- 175  if( (FTRflag = 0),
- 176  * Do the usual vSPD reporting
- 177   
- 178  * Call vSPDreportSetup to establish the report files ready to write results into
- 179    put_utility temp 'exec' / 'gams runvSPDreportSetup' ;
- 180   
- 181  * Loop over the designated input files and generate vSPD reports
- 182    runNum = 1 ;
- 183    loop(i_fileName,
- 184   
- 185  *     Create file that has the name of the input file for the current case being reported on
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 14:41:36 Page 4
+ 171   
+ 172  *=====================================================================================
+ 173  * Generate reports (solving vSPD is now finished).
+ 174  *=====================================================================================
+ 175   
+ 176  if( (FTRflag = 0),
+ 177  * Do the usual vSPD reporting
+ 178   
+ 179  * Call vSPDreportSetup to establish the report files ready to write results into
+ 180    put_utility temp 'exec' / 'gams runvSPDreportSetup' ;
+ 181   
+ 182  * Loop over the designated input files and generate vSPD reports
+ 183    runNum = 1 ;
+ 184    loop(i_fileName,
+ 185   
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
 
- 186        putclose vSPDcase "$setglobal  vSPDinputData  " i_fileName.tl:0 / "$setglobal  vSPDrunNum     " runNum:0:0 ;
- 187   
- 188  *     Generate the reports
- 189        put_utility temp 'exec' / 'gams runvSPDreport';
- 190   
- 191  *     Remove the temporary output GDX files
- 192        put_utility temp 'shell' / 'del "Z:\home\nigel\python\vSPDReservePivotal\Programs\..\Output\SinglePer\runNum'runNum:0:0'_*.gdx"' ;
- 193   
- 194  *     Increment the run number before going around loop again
- 195        runNum = runNum + 1 ;
- 196   
- 197    ) ;
- 198   
- 199  elseif (FTRflag = 1),
- 200  * Do the FTR calculations and reporting in the case where FTR rents are being calculated
- 201   
- 202  * Call setup file
- 203    put_utility temp 'exec' / 'gams FTRreportSetup errmsg=1';
- 204   
- 205  * Reset the run num
- 206    runNum = 1;
- 207   
- 208  * Loop over all the specified files and run the model
- 209    loop(i_FileName,
- 210   
- 211  *   Create file that has the current case input file being solved
- 212      putclose vSPDcase "$setglobal  VSPDInputData  " i_Filename.tl:0 / "$setglobal  VSPDRunNum  " runNum:0:0;
- 213   
- 214  *   Run the model
- 215      put_utility temp 'exec' / 'gams FTRrentalCalculation errmsg=1';
- 216   
- 217  *   Remove the temporary output GDX files
- 218      put_utility temp 'shell' / 'del "Z:\home\nigel\python\vSPDReservePivotal\Programs\..\Output\SinglePer\runNum'runNum:0:0'_*.gdx"' ;
- 219   
- 220  *   Increment the run number before going around loop again
- 221      runNum = runNum + 1 ;
- 222   
- 223    ) ;
- 224   
- 225  * Remove the temporary output GDX files
- 226    put_utility temp 'shell' / 'del "Z:\home\nigel\python\vSPDReservePivotal\Programs\..\Output\SinglePer\FTRflow.gdx"' ;
- 227   
- 228  ) ;
- 229   
+ 186  *     Create file that has the name of the input file for the current case being reported on
+ 187        putclose vSPDcase "$setglobal  vSPDinputData  " i_fileName.tl:0 / "$setglobal  vSPDrunNum     " runNum:0:0 ;
+ 188   
+ 189  *     Generate the reports
+ 190        put_utility temp 'exec' / 'gams runvSPDreport';
+ 191   
+ 192  *     Remove the temporary output GDX files
+ 193        put_utility temp 'shell' / 'del "Z:\home\nigel\python\vSPDReservePivotal\Programs\..\Output\SinglePer\runNum'runNum:0:0'_*.gdx"' ;
+ 194   
+ 195  *     Increment the run number before going around loop again
+ 196        runNum = runNum + 1 ;
+ 197   
+ 198    ) ;
+ 199   
+ 200  elseif (FTRflag = 1),
+ 201  * Do the FTR calculations and reporting in the case where FTR rents are being calculated
+ 202   
+ 203  * Call setup file
+ 204    put_utility temp 'exec' / 'gams FTRreportSetup errmsg=1';
+ 205   
+ 206  * Reset the run num
+ 207    runNum = 1;
+ 208   
+ 209  * Loop over all the specified files and run the model
+ 210    loop(i_FileName,
+ 211   
+ 212  *   Create file that has the current case input file being solved
+ 213      putclose vSPDcase "$setglobal  VSPDInputData  " i_Filename.tl:0 / "$setglobal  VSPDRunNum  " runNum:0:0;
+ 214   
+ 215  *   Run the model
+ 216      put_utility temp 'exec' / 'gams FTRrentalCalculation errmsg=1';
+ 217   
+ 218  *   Remove the temporary output GDX files
+ 219      put_utility temp 'shell' / 'del "Z:\home\nigel\python\vSPDReservePivotal\Programs\..\Output\SinglePer\runNum'runNum:0:0'_*.gdx"' ;
+ 220   
+ 221  *   Increment the run number before going around loop again
+ 222      runNum = runNum + 1 ;
+ 223   
+ 224    ) ;
+ 225   
+ 226  * Remove the temporary output GDX files
+ 227    put_utility temp 'shell' / 'del "Z:\home\nigel\python\vSPDReservePivotal\Programs\..\Output\SinglePer\FTRflow.gdx"' ;
+ 228   
+ 229  ) ;
  230   
  231   
- 232  *=====================================================================================
- 233  * Clean up
- 234  *=====================================================================================
- 236  execute 'del "*.lst"' ;
- 237  execute 'del "*.~gm"' ;
- 238  execute 'del "*.lxi"' ;
- 239  execute 'del "*.log"' ;
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 14:41:36 Page 5
+ 232   
+ 233  *=====================================================================================
+ 234  * Clean up
+ 235  *=====================================================================================
+ 237  execute 'del "*.lst"' ;
+ 238  execute 'del "*.~gm"' ;
+ 239  execute 'del "*.lxi"' ;
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
 
- 240  execute 'del "*.put"' ;
- 241  execute 'del "*.txt"' ;
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 14:41:36 Page 6
+ 240  execute 'del "*.log"' ;
+ 241  execute 'del "*.put"' ;
+ 242  execute 'del "*.txt"' ;
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Include File Summary
 
@@ -251,8 +252,8 @@ Include File Summary
      5      124 INCLUDE        1      55  .Z:\home\nigel\python\vSPDReservePivotal\Programs\vSPDfileList.inc
 
 
-COMPILATION TIME     =        0.256 SECONDS      3 Mb  WEX240-240 Feb 14, 2013
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 14:41:36 Page 7
+COMPILATION TIME     =        0.209 SECONDS      3 Mb  WEX240-240 Feb 14, 2013
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -264,7 +265,7 @@ vSPDcase Z:\home\nigel\python\vSPDReservePivotal\Programs\vSPDcase.inc
 FTRrun Z:\home\nigel\python\vSPDReservePivotal\Programs\FTRrun.inc
 
 
-EXECUTION TIME       =       10.991 SECONDS      4 Mb  WEX240-240 Feb 14, 2013
+EXECUTION TIME       =        9.283 SECONDS      4 Mb  WEX240-240 Feb 14, 2013
 
 
 USER: Lynda Clements                                 G120423:0647AN-WIN

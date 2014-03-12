@@ -92,6 +92,15 @@ $onempty
 
 
 *=====================================================================================
+* 0. Initialise a while loop to iterate through the different scenarios
+*=====================================================================================
+
+*Scalar NGC_ITR_NUM 'Iteration number to keep track' / 1 / ;
+
+*for[NGC_ITR_NUM = 1 to 5,
+
+
+*=====================================================================================
 * 1. Declare symbols and initialise some of them
 *=====================================================================================
 
@@ -1186,7 +1195,7 @@ for[iterationCount = 1 to numTradePeriods,
         PLSRReserveType(i_reserveType) $ (ord(i_reserveType) = 1) = yes ;
 
         TWDRReserveType(i_reserveType) $ (ord(i_reserveType) = 2) = yes ;
-        
+
         ILReserveType(i_reserveType)   $ (ord(i_reserveType) = 3) = yes ;
 
         reserveOfferProportion(offer,trdBlk,i_reserveClass) $ ( ord(i_reserveClass) = 1 )
@@ -3927,6 +3936,8 @@ $label Next
 
 
 
+
+
 *=====================================================================================
 * 9. Write results to GDX files
 *=====================================================================================
@@ -4042,6 +4053,11 @@ elseif (FTRflag = 2),
 $label Next1
 
 );
+
+* End of the while loop for my iterations
+*NGC_ITR_NUM = NGC_ITR_NUM + 1
+*);
+
 
 
 * Post a progress message for use by EMI.

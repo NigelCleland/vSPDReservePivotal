@@ -1,0 +1,14 @@
+
+Run: "SinglePer"
+Case: "FP_2013102016" - started at 15:55:26 on 03/12/14
+
+Vectorisation is switched ON
+
+The case: FP_2013102016 finished at 15:55:26. Solve successful.
+Objective function value: -904.3
+Violation Cost: 0.0
+
+The case: FP_2013102016 is complete. (15:55:26).
+
+
+
