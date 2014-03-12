@@ -49,6 +49,15 @@ def convert_to_gms(fName):
 
 def scrub_trading_periods(fName, periods):
     """ Remove all information to other non included trading periods.
+
+    Parameters:
+    -----------
+    fName: The filename of the .GMS file
+    periods: What periods to include
+
+    Returns:
+    --------
+    new_gms_name: filename of the new, reduced GMS file
     """
     tps = ["TP%s" % x for x in periods]
     periods = [str(x) for x in periods]
@@ -76,6 +85,17 @@ def scrub_trading_periods(fName, periods):
 
 def check_line(line, tps):
     """ Check a line for inclusion in the new file
+
+    Parameters:
+    -----------
+    line: The line to be checked
+    tps: List of TP Objects to check against
+
+    Returns:
+    --------
+    line: The line to be added or "Empty"
+    new_flag: The flag which is context specific
+
     """
 
     if line[:3] ==  "'TP" :
