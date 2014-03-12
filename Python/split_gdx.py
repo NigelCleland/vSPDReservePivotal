@@ -127,7 +127,8 @@ def cleanup(patterns=('.gms', '.lst')):
 if __name__ == '__main__':
     fName = sys.argv[1]
     periods = sys.argv[2:]
-    print fName, periods
+    print """I am going to scrub the file %s to ensure that the following
+periods %s are the only ones included""" % (fName, periods)
     splitgdx(fName, periods)
     cleanup()
 
