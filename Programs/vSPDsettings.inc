@@ -24,7 +24,7 @@ Scalar mixedMIPtolerance                 / 0.000001 / ;
 
 *+++ Model and solver +++
 Scalar sequentialSolve                   / 0 / ;
-$setglobal Solver                          Cplex
+$setglobal Solver                          cbc
 Scalar LPtimeLimit                       / 600 / ;
 Scalar LPiterationLimit                  / 1000000 / ;
 Scalar MIPtimeLimit                      / 600 / ;
