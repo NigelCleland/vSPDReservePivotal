@@ -104,6 +104,10 @@ $onempty
 * 1. Declare symbols and initialise some of them
 *=====================================================================================
 
+PARAMETER
+NGC_ITER_COUNT
+;
+
 Sets
 * Initialise 21 fundamental sets by hard-coding (these sets can also be found in the daily GDX files)
   i_island                    / NI, SI /
@@ -786,6 +790,7 @@ numTradePeriods = card(tp) ;
 *=====================================================================================
 * 8. The vSPD solve loop
 *=====================================================================================
+
 
 for[iterationCount = 1 to numTradePeriods,
     skipResolve = 0 ;
@@ -2249,7 +2254,15 @@ for[iterationCount = 1 to numTradePeriods,
 *           Set resource limits
             vSPD.reslim = LPTimeLimit ;
             vSPD.iterlim = LPIterationLimit ;
+*           for[ngc_itr = 1 to 3,
+
+            for(NGC_ITER_COUNT = 1 to 3,
+
             solve vSPD using lp maximizing NETBENEFIT ;
+
+*             End for loop
+            );
+
 *           Set the model solve status
             ModelSolved = 1$((vSPD.modelstat = 1) and (vSPD.solvestat = 1)) ;
 

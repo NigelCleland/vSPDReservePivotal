@@ -1,4 +1,4 @@
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 1
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 16:11:14 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -56,7 +56,7 @@ INCLUDE    Z:\home\nigel\python\vSPDReservePivotal\Programs\vSPDsettings.inc
   70   
   71  *+++ External loss model from Transpower +++
   72  Scalar useExternalLossModel              / 1 / ;
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 2
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 16:11:14 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -114,7 +114,7 @@ INCLUDE    Z:\home\nigel\python\vSPDReservePivotal\Programs\vSPDfileList.inc
  128    ;
  129   
  130   
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 3
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 16:11:14 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -172,7 +172,7 @@ C o m p i l a t i o n
  183    runNum = 1 ;
  184    loop(i_fileName,
  185   
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 4
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 16:11:14 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -230,7 +230,7 @@ C o m p i l a t i o n
  237  execute 'del "*.lst"' ;
  238  execute 'del "*.~gm"' ;
  239  execute 'del "*.lxi"' ;
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 5
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 16:11:14 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -238,7 +238,7 @@ C o m p i l a t i o n
  240  execute 'del "*.log"' ;
  241  execute 'del "*.put"' ;
  242  execute 'del "*.txt"' ;
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 6
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 16:11:14 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Include File Summary
 
@@ -252,8 +252,8 @@ Include File Summary
      5      124 INCLUDE        1      55  .Z:\home\nigel\python\vSPDReservePivotal\Programs\vSPDfileList.inc
 
 
-COMPILATION TIME     =        0.209 SECONDS      3 Mb  WEX240-240 Feb 14, 2013
-GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 15:55:23 Page 7
+COMPILATION TIME     =        0.274 SECONDS      3 Mb  WEX240-240 Feb 14, 2013
+GAMS Rev 240  WEX-WEI 24.0.2 x86_64/MS Windows                                                                                                                                                                                         03/12/14 16:11:14 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -265,7 +265,7 @@ vSPDcase Z:\home\nigel\python\vSPDReservePivotal\Programs\vSPDcase.inc
 FTRrun Z:\home\nigel\python\vSPDReservePivotal\Programs\FTRrun.inc
 
 
-EXECUTION TIME       =        9.283 SECONDS      4 Mb  WEX240-240 Feb 14, 2013
+EXECUTION TIME       =       12.397 SECONDS      4 Mb  WEX240-240 Feb 14, 2013
 
 
 USER: Lynda Clements                                 G120423:0647AN-WIN
